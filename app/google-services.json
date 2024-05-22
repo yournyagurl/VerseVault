@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "442592169482",
+    "project_id": "versevau-54c8a",
+    "storage_bucket": "versevau-54c8a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442592169482:android:b19b4f7a8f9d798d36d9f3",
+        "android_client_info": {
+          "package_name": "com.example.wallahilast"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "442592169482-0tuikej6a0bskabbdhls2a1fgunsrkvu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANoM3ttdAOIe6lKEAu6VC1gzUX_716m0E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "442592169482-0tuikej6a0bskabbdhls2a1fgunsrkvu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442592169482:android:d33a5edee0d7fbf736d9f3",
+        "android_client_info": {
+          "package_name": "com.example.ze"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "442592169482-0tuikej6a0bskabbdhls2a1fgunsrkvu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANoM3ttdAOIe6lKEAu6VC1gzUX_716m0E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "442592169482-0tuikej6a0bskabbdhls2a1fgunsrkvu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_books">
+
+    <fragment
+        android:id="@+id/navigation_books"
+        android:name="com.example.ze.ui.books.BooksFragment"
+        android:label="@string/title_books"
+        tools:layout="@layout/fragment_books">
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_discovery"
+        android:name="com.example.ze.ui.discover.DiscoverFragment"
+        android:label="@string/title_discover"
+        tools:layout="@layout/fragment_discover" >
+        <action
+            android:id="@+id/action_navigation_discovery_to_navigation_discovery_category"
+            app:destination="@id/navigation_discovery_category" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_discovery_category"
+        android:name="com.example.ze.ui.discover.DiscoverCategoryFragment"
+        android:label="@string/title_discover"
+        tools:layout="@layout/fragment_discover_category" >
+        <argument
+            android:name="categoryTitle"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_shelves"
+        android:name="com.example.ze.ui.shelves.ShelvesFragment"
+        android:label="@string/title_shelves"
+        tools:layout="@layout/fragment_shelves" >
+        <action
+            android:id="@+id/action_navigation_shelves_to_shelfWithBooksFragment"
+            app:destination="@id/shelfWithBooksFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mainSearchFragment"
+        android:name="com.example.ze.ui.search.MainSearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_main_search" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.ze.ui.settings.SettingsFragment"
+        android:label="@string/title_settings" />
+
+    <fragment
+        android:id="@+id/shelfWithBooksFragment"
+        android:name="com.example.ze.ui.shelves.ShelfWithBooksFragment"
+        tools:layout="@layout/fragment_shelf_with_books" >
+        <argument
+            android:name="currentShelfId"
+            app:argType="string" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_main_to_search"
+        app:destination="@id/mainSearchFragment" />
+
+    <action
+        android:id="@+id/action_main_to_settings"
+        app:destination="@id/settingsFragment" />
+
+</navigation>

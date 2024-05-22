@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ui.login.LoginActivity"
+    android:background="@color/default_background">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="263dp"
+        android:layout_height="253dp"
+        android:src="@drawable/logo" />
+
+    <LinearLayout
+        android:id="@+id/loginLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/welcomeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/verse_vault"
+            android:textSize="28sp"
+            android:fontFamily="@font/arya_bold"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="24dp"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/smallWelcomeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/verseVault"
+            android:fontFamily="@font/arya_bold"
+            android:textSize="20sp"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="24dp"
+            android:visibility="gone"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/userEmail"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="24dp"
+            android:fontFamily="@font/arya_bold"
+            android:hint="@string/prompt_email"
+            app:errorEnabled="false"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/user_email_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:background="@color/default_accents"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="24dp"
+            android:hint="@string/prompt_password"
+            app:errorEnabled="false"
+            app:endIconMode="password_toggle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/user_password_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:background="@color/default_accents"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                style="@style/Widget.Material3.CircularProgressIndicator.Small" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/forgotPasswordText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/forgot_password"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="24dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/login"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:height="24dp"
+                android:enabled="true"
+                android:text="@string/action_sign_in" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/register"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:height="24dp"
+                android:enabled="true"
+                android:text="@string/action_register"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="24dp"
+            android:orientation="horizontal">
+            <View
+                android:layout_height="1dp"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="?attr/colorControlHighlight"/>
+
+            <TextView
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:textColor="?attr/colorControlHighlight"
+                android:text="@string/or"
+                android:textStyle="italic"
+                android:layout_gravity="center"/>
+
+            <View
+                android:layout_height="1dp"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="?attr/colorControlHighlight"/>
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/withoutRegister"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="24dp"
+            android:enabled="true"
+            android:text="@string/action_without_register" />
+    </LinearLayout>
+
+</LinearLayout>

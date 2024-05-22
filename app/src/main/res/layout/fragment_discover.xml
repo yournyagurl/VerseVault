@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.discover.DiscoverFragment"
+    android:background="@color/default_background">
+
+    <TextView
+        android:id="@+id/appNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VERSE VAULT"
+        android:fontFamily="@font/arya_bold"
+        android:gravity="top|center"
+        android:layout_marginTop="16dp"
+        android:textSize="32sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/discoverRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="?actionBarSize"
+        android:padding="16dp"
+        android:gravity="top|center"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/hardworking"
+        android:visibility="gone" />
+</LinearLayout>

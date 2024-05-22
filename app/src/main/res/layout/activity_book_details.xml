@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.books.BookDetailsActivity"
+    android:background="@color/default_background"
+    >
+
+    <LinearLayout
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:visibility="visible">
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"/>
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@color/default_accents"
+        app:cardCornerRadius="20dp">
+    <LinearLayout
+        android:layout_margin="12dp"
+        android:id="@+id/bookDetailGeneralLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/bookCoverImageView"
+            android:layout_margin="2dp"
+            android:layout_width="80dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_placeholder_book_icon"
+            tools:ignore="ContentDescription"
+            app:strokeColor="@color/md_theme_light_primary"
+            app:strokeWidth="0.5dp"
+            />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/bookDetailTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/arya_bold"
+                    android:padding="4dp"
+                    android:text="@string/empty_text"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/bookDetailSubTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/arya_bold"
+                    android:text="@string/empty_text"
+                    android:textSize="12sp"
+                    android:paddingStart="8dp"
+                    android:paddingBottom="0dp"
+                    android:paddingEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/bookDetailAuthorsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/arya_bold"
+                    android:text="@string/empty_text"
+                    android:textSize="14sp"
+                    android:paddingTop="16dp"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp"
+                    android:paddingBottom="16dp"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addBookToLibraryButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="@string/add_this_book_to_your_library"
+        >
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/removeBookFromLibraryButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:visibility="gone"
+        android:text="@string/remove_this_book_from_your_library">
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/bookDetailTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/info"
+            android:fontFamily="@font/arya_bold"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/notes"
+            android:fontFamily="@font/arya_bold"/>
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <LinearLayout
+        android:id="@+id/bookDetailNotesLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_margin="15dp">
+
+        <EditText
+            android:id="@+id/userBookNotesEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/enter_your_notes_here"
+            android:scrollbars="vertical"
+            android:gravity="top"
+            android:background="@android:color/transparent"
+            android:inputType="textMultiLine"
+            android:autofillHints="name"
+            android:fontFamily="@font/arya_bold"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/bookDetailInfoLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            app:cardCornerRadius="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp"
+            android:layout_margin="15dp">
+
+            <LinearLayout
+                android:id="@+id/bookDetailShelvesTextViews"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:id="@+id/bookDetailShelvesTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/arya_bold"
+                    android:layout_margin="5dp"
+                    android:text="@string/title_shelves"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/shelvesOfBooks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:fontFamily="@font/arya_bold"
+                    android:hint="@string/add_this_book_to_a_shelf"
+                    android:layout_margin="5dp"
+                    android:textSize="16sp"
+                    app:drawableEndCompat="@drawable/ic_action_arrow" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/bookDetailPagesTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:fontFamily="@font/arya_bold"
+                android:text="@string/pages"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bookDetailPagesNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="12dp"
+                android:fontFamily="@font/arya_bold"
+                android:text="@string/empty_text"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/bookDetailCategoriesTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:fontFamily="@font/arya_bold"
+                android:text="@string/categories"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bookDetailCategories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="12dp"
+                android:fontFamily="@font/arya_bold"
+                android:text="@string/empty_text"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/bookDetailPublisherTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:fontFamily="@font/arya_bold"
+                android:text="@string/publisher"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bookDetailPublisher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="12dp"
+                android:fontFamily="@font/arya_bold"
+                android:text="@string/empty_text"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/bookDetailPublishDateTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:fontFamily="@font/arya_bold"
+                android:text="@string/published_date"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bookDetailPublishDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="12dp"
+                android:fontFamily="@font/arya_bold"
+                android:text="@string/empty_text"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/bookDetailDescriptionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:fontFamily="@font/arya_bold"
+                android:text="@string/description"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bookDetailDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="12dp"
+                android:fontFamily="@font/arya_bold"
+                android:text="@string/empty_text"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+
+
+        </androidx.cardview.widget.CardView>
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayoutDetailsError"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/something_went_wrong"
+            android:fontFamily="@font/arya_bold"
+            android:textSize="16sp" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/searchnotfound"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+</LinearLayout>

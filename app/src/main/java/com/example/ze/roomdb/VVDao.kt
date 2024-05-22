@@ -1,0 +1,74 @@
+package com.example.ze.roomdb
+
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Transaction
+import androidx.room.Update
+import com.example.ze.model.googlebooksmodel.DataModel
+import com.example.ze.roomdb.entities.BookShelfCrossRef
+import com.example.ze.roomdb.entities.BookWithShelves
+import com.example.ze.roomdb.entities.LocalShelf
+import com.example.ze.roomdb.entities.ShelfWithBooks
+
+@Dao
+interface VVDao {
+    //Book works
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertBook(localBook: DataModel.LocalBook)
+
+    @Update
+    suspend fun updateBook(localBook: DataModel.LocalBook)
+
+    @Delete
+    suspend fun deleteBook(localBook: DataModel.LocalBook)
+
+    @Query("DELETE FROM Book WHERE bookId = :id")
+    suspend fun deleteBookById(id: String)
+
+    @Query("SELECT * FROM Book WHERE bookId = :id")
+    fun getLocalBooksById(id: String): DataModel.LocalBook
+
+    @Query("SELECT * FROM Book")
+    fun getLocalBooks(): List<DataModel.LocalBook>
+
+    @Query("SELECT * FROM Book WHERE bookAuthors LIKE :searchString OR bookTitle LIKE :searchString")
+    fun searchLocalBooks(searchString: String): List<DataModel.LocalBook>
+
+    //Shelf works
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertShelf(localShelf: LocalShelf)
+
+    @Update
+    suspend fun updateShelf(localShelf: LocalShelf)
+
+    @Delete
+    suspend fun deleteShelf(localShelf: LocalShelf)
+
+    @Query("SELECT * FROM Shelf")
+    fun getLocalShelves(): List<LocalShelf>
+
+    @Query("SELECT * FROM Shelf WHERE shelfTitle LIKE :searchString")
+    fun searchLocalShelf(searchString: String): List<LocalShelf>
+
+    //Cross works
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertBookShelfCrossRef(crossRef: BookShelfCrossRef)
+
+    @Delete
+    suspend fun deleteBookShelfCrossRef(crossRef: BookShelfCrossRef)
+
+    @Transaction
+    @Query("SELECT * FROM BookShelfCrossRef")
+    fun getBookShelfCrossRef(): List<BookShelfCrossRef>
+
+    @Transaction
+    @Query("SELECT * FROM Shelf")
+    fun getBooksOfShelf(): List<ShelfWithBooks>
+
+    @Transaction
+    @Query("SELECT * FROM Book WHERE bookId = :bookId")
+    fun getShelvesOfBook(bookId: String): List<BookWithShelves>
+}
